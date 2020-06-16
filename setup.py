@@ -1,9 +1,9 @@
 from distutils.core import setup
 
-from os import path
-this_directory = path.abspath(path.dirname(__file__))
-with open(path.join(this_directory, 'README.md'), encoding='utf-8') as f:
-    long_description = f.read()
+# from os import path
+# this_directory = path.abspath(path.dirname(__file__))
+# with open(path.join(this_directory, 'README.md'), encoding='utf-8') as f:
+#     long_description = f.read()
 
 
 setup(
@@ -12,8 +12,6 @@ setup(
   version = '0.1.3',      # Start with a small number and increase it with every change you make
   license='MIT',        # Chose a license from here: https://help.github.com/articles/licensing-a-repository
   description = 'Measure bias from data and machine learning models.',   # Give a short description about your library
-  long_description=long_description,
-  long_description_content_type='text/markdown',
   author = 'Xavier M. Puspus',                   # Type in your name
   author_email = 'xpuspus@gmail.com',      # Type in your E-Mail
   url = 'https://github.com/xmpuspus/parity-fairness',   # Provide either the link to your github or to your website
