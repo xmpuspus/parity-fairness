@@ -8,18 +8,17 @@ from distutils.core import setup
 
 setup(
   name = 'parity-fairness',         # How you named your package folder (MyLib)
-  packages = ['parity-fairness'],   # Chose the same as "name"
-  version = '0.1.3',      # Start with a small number and increase it with every change you make
+  packages = ['parity'],   # Chose the same as "name"
+  version = '0.1.8',      # Start with a small number and increase it with every change you make
   license='MIT',        # Chose a license from here: https://help.github.com/articles/licensing-a-repository
   description = 'Measure bias from data and machine learning models.',   # Give a short description about your library
   author = 'Xavier M. Puspus',                   # Type in your name
   author_email = 'xpuspus@gmail.com',      # Type in your E-Mail
   url = 'https://github.com/xmpuspus/parity-fairness',   # Provide either the link to your github or to your website
-  download_url = 'https://github.com/xmpuspus/parity-fairness/archive/v_01.3.tar.gz',    # I explain this later on
+  download_url = 'https://github.com/xmpuspus/parity-fairness/archive/v_01.8.tar.gz',    # I explain this later on
   keywords = ['fairness', 'bias', 'explainability', 'AI', 'machine learning', 'data'],   # Keywords that define your package best
   install_requires=[            # I get to this in a second
           'matplotlib',
-          'time',
           'joblib',
           'numpy',
           'altair',
@@ -29,7 +28,8 @@ setup(
           'aif360',
           'plotly',
           'Ipython',
-          'sklearn'
+          'sklearn',
+          'fairlearn'
       ],
   classifiers=[
     'Development Status :: 3 - Alpha',      # Chose either "3 - Alpha", "4 - Beta" or "5 - Production/Stable" as the current state of your package
