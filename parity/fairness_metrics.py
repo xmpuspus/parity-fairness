@@ -26,7 +26,6 @@ import tensorflow as tf
 
 from IPython.display import Markdown, display
 import warnings
-import streamlit as st
 
 def get_model_performance(X_test, y_true, y_pred, probs):
     """
