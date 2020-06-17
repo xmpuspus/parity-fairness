@@ -1,9 +1,6 @@
 # Parity
 
-
-### Overview
 This repository contains codes that demonstrate the use of fairness metrics, bias mitigations and explainability tool.
-
 
 ### Installation
 
@@ -44,17 +41,11 @@ A common problem with most machine learning models is bias from data. This noteb
 Some metrics need predictions while others just the original dataset. This is why we will use 2 classes of the aif360 package : `ClassificationMetric` and `BinaryLabelDatasetMetric`. 
 
 ### For metrics that require predictions: 
-* [Equal Opportunity Difference: ](https://aif360.readthedocs.io/en/latest/modules/metrics.html#aif360.metrics.ClassificationMetric.equal_opportunity_difference) `equal_opportunity_difference()`
-* [Average Absolute Odds Difference: ](https://aif360.readthedocs.io/en/latest/modules/metrics.html#aif360.metrics.ClassificationMetric.average_abs_odds_difference) `average_abs_odds_difference()`
+* [Equal Opportunity Difference: ](https://aif360.readthedocs.io/en/latest/modules/metrics.html#aif360.metrics.ClassificationMetric.equal_opportunity_difference)  `equal_opportunity_difference()`
+* [Average Absolute Odds Difference: ](https://aif360.readthedocs.io/en/latest/modules/metrics.html#aif360.metrics.ClassificationMetric.average_abs_odds_difference)  `average_abs_odds_difference()`
 * [Theil Index : ](https://aif360.readthedocs.io/en/latest/modules/metrics.html#aif360.metrics.ClassificationMetric.theil_index) `theil_index()`
 
 ### For metrics that don't require predictions: 
-* [Statistical Parity Difference: ](https://aif360.readthedocs.io/en/latest/modules/metrics.html#aif360.metrics.BinaryLabelDatasetMetric.statistical_parity_difference) `statistical_parity_difference()`
-* [Disparate Impact: ](https://aif360.readthedocs.io/en/latest/modules/metrics.html#aif360.metrics.ClassificationMetric.disparate_impact) `disparate_impact()`
+* [Statistical Parity Difference: ](https://aif360.readthedocs.io/en/latest/modules/metrics.html#aif360.metrics.BinaryLabelDatasetMetric.statistical_parity_difference)  `statistical_parity_difference()`
+* [Disparate Impact: ](https://aif360.readthedocs.io/en/latest/modules/metrics.html#aif360.metrics.ClassificationMetric.disparate_impact)  `disparate_impact()`
 
-
-### Sample Display
-
-The fairness metrics should display like this:
-
-![Sample image of the fairness metrics.](images/bias_metrics.png)
