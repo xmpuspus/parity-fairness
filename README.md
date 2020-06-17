@@ -4,6 +4,12 @@ This repository contains codes that demonstrate the use of fairness metrics, bia
 
 ### Installation
 
+In order for the explainability modules to work, first you have to install shap through `conda` like so:
+
+```console
+foo@bar:~$ conda install -c conda-forge shap
+```
+
 Install using:
 
 ```console
