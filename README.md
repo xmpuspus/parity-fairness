@@ -4,6 +4,31 @@
 ### Overview
 This repository contains codes that demonstrate the use of fairness metrics, bias mitigations and explainability tool.
 
+
+### Installation
+
+Install using:
+
+```console
+foo@bar:~$ pip install parity-fairness
+```
+
+### Bias Measurement Usage
+
+Setup the data such that the target column is a binary string target. Then find out which features are the `privileged categories` and which values are `privileged values`. Afterwards, feed them into the function called `show_bias` like:
+
+```
+from parity.fairness_metrics import show_bias
+
+priv_category = 'Race-White'
+priv_value = 'True'
+target_label = 'high pay'
+unencoded_target_label = 'True'
+cols_to_drop = ''
+
+show_bias(data, priv_category, priv_value, target_label, unencoded_target_label, cols_to_drop)
+```
+
 # Bias and Fairness
 
 A common problem with most machine learning models is bias from data. This notebook shows how to measure those biases and perform bias mitigation. A python package called [aif360](https://github.com/IBM/AIF360) can give us metrics and algorithms for bias measurement and mitigation
