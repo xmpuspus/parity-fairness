@@ -143,7 +143,7 @@ def get_fair_metrics(dataset, pred, pred_is_dataset=False):
         
     return fair_metrics
 
-def plot_fair_metrics(fair_metrics, streamlit=False):
+def plot_fair_metrics(fair_metrics):
     """
     Plots the fairness metrics.
     """
@@ -178,14 +178,6 @@ def plot_fair_metrics(fair_metrics, streamlit=False):
         check = [bound[i][0] < fair_metrics.loc[attr][i] < bound[i][1] for i in range(0,5)]
         display(Markdown("With default thresholds, bias against unprivileged group detected in **%d** out of 5 metrics"%(5 - sum(check))))
         
-    if streamlit:
-        st.write( "Check bias metrics :")
-        st.write("A model can be considered bias if just one of these five metrics show that this model is biased.")
-        for attr in fair_metrics.index[1:len(fair_metrics)].values:
-            st.write(" For the %s attribute :"%attr)
-            check = [bound[i][0] < fair_metrics.loc[attr][i] < bound[i][1] for i in range(0,5)]
-            st.write("With default thresholds, bias against unprivileged group detected in **%d** out of 5 metrics"%(5 - sum(check)))
-        
 
     for i in range(0,5):
         plt.subplot(1, 5, i+1)
@@ -204,7 +196,7 @@ def plot_fair_metrics(fair_metrics, streamlit=False):
         ax.set_ylabel('')    
         ax.set_xlabel('')
         
-def get_fair_metrics_and_plot(data, model, plot=True, model_aif=False, streamlit=False):
+def get_fair_metrics_and_plot(data, model, plot=True, model_aif=False):
     """
         Computes fairness metrics and plots them.
     """
@@ -215,7 +207,7 @@ def get_fair_metrics_and_plot(data, model, plot=True, model_aif=False, streamlit
     if plot:
         
         # The visualisation of this function is inspired by the dashboard on the demo of IBM aif360 
-        plot_fair_metrics(fair, streamlit)
+        plot_fair_metrics(fair)
         display(fair)
     
     return fair
@@ -312,4 +304,4 @@ def show_bias(data, priv_category, priv_value, target_label, unencoded_target_la
                          sample_weight=data_orig_train.instance_weights)
 
     
-    fair = get_fair_metrics_and_plot(data_orig_test, rf_orig, streamlit=True)
+    fair = get_fair_metrics_and_plot(data_orig_test, rf_orig)
