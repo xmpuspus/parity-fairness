@@ -55,6 +55,41 @@ Some metrics need predictions while others just the original dataset. This is wh
 * [Statistical Parity Difference: ](https://aif360.readthedocs.io/en/latest/modules/metrics.html#aif360.metrics.BinaryLabelDatasetMetric.statistical_parity_difference)  `statistical_parity_difference()`
 * [Disparate Impact: ](https://aif360.readthedocs.io/en/latest/modules/metrics.html#aif360.metrics.ClassificationMetric.disparate_impact)  `disparate_impact()`
 
+### People + AI Research
+
+A project by Google, this module helps visualize inference results, visualize feature attributions, arrange datapoints by similarity, edit a datapoint and see how it performs, compare counterfactuals to datapoints, and test algorithmic fairness constraints. More details can be found [here](https://pair-code.github.io/what-if-tool/).
+
+To use, simply add:
+
+```
+from parity import pair
+```
+
+Sample code to show the GUI:
+
+```
+from parity.pair import *
+
+### Insert more code here
+
+# Load up the test dataset
+test_csv_path = 'https://archive.ics.uci.edu/ml/machine-learning-databases/adult/adult.test'
+test_df = pd.read_csv(test_csv_path, names=csv_columns, skipinitialspace=True,
+  skiprows=1)
+
+num_datapoints = 2000
+tool_height_in_px = 1000
+make_label_column_numeric(test_df, label_column, lambda val: val == '>50K.')
+test_examples = df_to_examples(test_df[0:num_datapoints])
+labels = ['Under 50K', 'Over 50K']
+
+# Setup the tool with the test examples and the trained classifier
+config_builder = config(test_examples, classifier, labels, feature_spec)
+
+## Visualization only appears through jupyter notebook (not jupyter lab)
+WitWidget(config_builder, height=tool_height_in_px)
+```
+
 ### Bias Mitigation
 
 There are three types of bias mitigation:
