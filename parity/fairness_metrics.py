@@ -325,4 +325,4 @@ def compare_fair_metrics(algo_metrics, priv_category):
     df_metrics.index = algo_metrics.index.values
     df_metrics = df_metrics.replace([np.inf, -np.inf], np.NaN)
     
-    return display(df_metrics)
+    return df_metrics
