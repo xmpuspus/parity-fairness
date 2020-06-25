@@ -330,7 +330,8 @@ def calibrate_equality_of_odds(train_data, test_data, predicted_data, priv_categ
     cost_constraint (str): ("fnr" or false negative rate, "fpr" or false positive rate, and "weighted" for custom weights)
     
     Returns:
-    data_transf_df (pandas dataframe): Pandas dataframe.
+    data_transf_pred: aif360's standard dataset
+    CPP: algorithmic model for mitigation
     """
     
     privileged_groups, unprivileged_groups = get_attributes(train_data, selected_attr=[priv_category])
@@ -341,11 +342,8 @@ def calibrate_equality_of_odds(train_data, test_data, predicted_data, priv_categ
 
     CPP = CPP.fit(test_data, predicted_data)
     data_transf_pred = CPP.predict(predicted_data)
-    
-    # Convert to pandas dataframe
-    data_transf_df = convert_to_pd_dataframe(data_transf_pred)
-    
-    return data_transf_df
+       
+    return data_transf_pred, CPP
 
 def reject_option(train_data, test_data, predicted_data, priv_category, cost_constraint="fnr"):
     """
@@ -359,7 +357,8 @@ def reject_option(train_data, test_data, predicted_data, priv_category, cost_con
     cost_constraint (str): ("fnr" or false negative rate, "fpr" or false positive rate, and "weighted" for custom weights)
     
     Returns:
-    decoded_df (pandas dataframe): Pandas dataframe.
+    data_transf_pred: aif360's standard dataset
+    ROC: algorithmic model for mitigation
     """
     privileged_groups, unprivileged_groups = get_attributes(train_data, selected_attr=[priv_category])
     ROC = RejectOptionClassification(privileged_groups = privileged_groups,
@@ -367,8 +366,5 @@ def reject_option(train_data, test_data, predicted_data, priv_category, cost_con
     
     ROC = ROC.fit(test_data, predicted_data)
     data_transf_pred = ROC.predict(predicted_data)
-    
-    # Convert to pandas dataframe
-    data_transf_df = convert_to_pd_dataframe(data_transf_pred)
-    
-    return data_transf_df
+       
+    return data_transf_pred, ROC

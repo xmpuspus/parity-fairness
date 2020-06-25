@@ -305,3 +305,24 @@ def show_bias(data, priv_category, priv_value, target_label, unencoded_target_la
 
     
     fair = get_fair_metrics_and_plot(data_orig_test, rf_orig)
+
+def compare_fair_metrics(algo_metrics, priv_category):
+    """
+    Shows a table of all the bias metrics of all mitigations.
+    
+    Parameters: 
+    algo_metrics: dataframe of all metrics and 
+    attr: privileged category
+    
+    Returns:
+    df_metrics: a dataframe 
+    """
+    
+    df_metrics = pd.DataFrame(columns=algo_metrics.loc['Origin','fair_metrics'].columns.values)
+    for fair in algo_metrics.loc[:,'fair_metrics']:
+        df_metrics = df_metrics.append(fair.loc[priv_category], ignore_index=True)
+
+    df_metrics.index = algo_metrics.index.values
+    df_metrics = df_metrics.replace([np.inf, -np.inf], np.NaN)
+    
+    return df_metrics
