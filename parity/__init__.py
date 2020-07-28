@@ -6,3 +6,4 @@ from parity.explainer import feature_importances, shap_feature_explainer, plot_p
 from parity.counterfactual_explainer import get_data_object, get_explainer_object, generate_counterfactual
 from parity.reduction import gridSearch, show_comparison
 from parity.thresholdOptimizer import thresholdOptimizer, show_comparison
+from parity.transfer import dump_to_aws_s3
