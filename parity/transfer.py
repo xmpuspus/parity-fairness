@@ -21,7 +21,7 @@ def dump_to_aws_s3(access_key_file,
     
     # Access key file has to be dictionary/unnested json format
     with open(access_key_file) as json_file:
-    access = json.load(json_file)
+      access = json.load(json_file)
 
     # Configure aws access
     ACCESS_KEY_ID = access['ACCESS_KEY_ID']
