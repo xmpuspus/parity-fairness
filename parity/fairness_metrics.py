@@ -296,6 +296,7 @@ def show_bias(data, priv_category, priv_value, target_label, unencoded_target_la
     data_orig, encoders, numerical_features, categorical_features = prepare_data(data, priv_category, priv_value, target_label, 
                                  priv_target_value=unencoded_target_label, ignore_cols=cols_to_drop)
 
+    np.random.seed(42)
     data_orig_train, data_orig_test = data_orig.split([0.7], shuffle=True)
     
     # Train and save the models
