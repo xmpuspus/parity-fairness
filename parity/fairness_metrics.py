@@ -306,6 +306,7 @@ def show_bias(data, priv_category, priv_value, target_label, unencoded_target_la
 
     
     fair = get_fair_metrics_and_plot(data_orig_test, rf_orig)
+    return fair
 
 def compare_fair_metrics(algo_metrics, priv_category):
     """
